@@ -3,6 +3,7 @@ This is a Selenium-TestNG project that automates searching for products and addi
 
 ### Features:
 * **Parallel Execution:** Runs iPhone and Galaxy tests simultaneously using TestNG.
+* Lambda test result screenshots are also added in the repository.
 
 ### How to Run:
 1. Clone the repo.
