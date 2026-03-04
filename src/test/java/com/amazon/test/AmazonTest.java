@@ -36,7 +36,6 @@ public class AmazonTest {
         // Wait object (10 seconds max wait)
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         org.openqa.selenium.JavascriptExecutor js = (org.openqa.selenium.JavascriptExecutor) driver;
-    //    String originalWindow = driver.getWindowHandle();
         try {
             driver.get("https://www.amazon.in");
             driver.manage().window().maximize();
@@ -48,7 +47,6 @@ public class AmazonTest {
             
             // 2. Wait for Add to Cart Button and Click
             By cartLocator = By.xpath("//button[@name='submit.addToCart']");
-       //     By cartLocator = By.xpath("//input[@id='add-to-cart-button' or @name='submit.add-to-cart' or contains(@value, 'Add to Cart')]");
             WebElement addToCartBtn = wait.until(ExpectedConditions.presenceOfElementLocated(cartLocator));
             js.executeScript("arguments[0].click();", addToCartBtn);
             
@@ -59,26 +57,11 @@ public class AmazonTest {
             String price = priceElement.getText();
             System.out.println(product + " Price: " + price);
 
-     //            // 3. Wait for Product Link and Click
-    //        WebElement productLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@data-cy='title-recipe'])[1]//a[@target='_blank']")));
-//            productLink.click();
-//            js.executeScript("arguments[0].click();", productLink);
-
-//            wait.until(d -> d.getWindowHandles().size() > 0); 
-//            for (String windowHandle : driver.getWindowHandles()) {
-//                if (!originalWindow.contentEquals(windowHandle)) {
-//                    driver.switchTo().window(windowHandle);
-//                    System.out.println("done");
-//                    break;
-//                }
-           
-
-       
 
         } catch (Exception e) {
             System.out.println("Error during " + product + " test: " + e.getMessage());
         } finally {
-          //  driver.quit();
+            driver.quit();
         }
     }
 }
